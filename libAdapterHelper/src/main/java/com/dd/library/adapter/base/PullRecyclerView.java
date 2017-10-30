@@ -63,10 +63,14 @@ public class PullRecyclerView extends RecyclerView {
                             mLastY = -1; // reset
                             if (isOnTop() && wrapAdapter.isRefreshEnable() && appbarState == AppBarStateChangeListener.State.EXPANDED) {
                                 if (mRefreshHeader.releaseAction()) {
-                                    BaseQuickAdapter.RequestRefreshListener mRequestRefreshListener = wrapAdapter.getRequestRefreshListener();
-                                    if (mRequestRefreshListener != null && !wrapAdapter.isLoading()) {
-                                        wrapAdapter.setLoading();
-                                        mRequestRefreshListener.onRefreshRequested();
+                                    if (!wrapAdapter.isLoading()) {
+                                        BaseQuickAdapter.RequestRefreshListener mRequestRefreshListener = wrapAdapter.getRequestRefreshListener();
+                                        if (mRequestRefreshListener != null) {
+                                            wrapAdapter.setLoading();
+                                            mRequestRefreshListener.onRefreshRequested();
+                                        }
+                                    } else {
+                                        mRefreshHeader.refreshComplete();
                                     }
                                 }
                             }

@@ -280,7 +280,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     public void setOnRefreshListener(RequestRefreshListener requestRefreshListener, RecyclerView recyclerView) {
         if (recyclerView instanceof PullRecyclerView) {
             openRefresh(requestRefreshListener);
-            if (getRecyclerView() == null) {
+            if (getRecyclerView() != null) {
                 mRefreshHeader = new ArrowRefreshHeader(getRecyclerView().getContext());
                 mRefreshHeader.setProgressStyle(mRefreshProgressStyle);
                 setRecyclerView(recyclerView);
