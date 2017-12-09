@@ -18,7 +18,7 @@ import com.dd.library.adapter.base.BaseViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.RequestRefreshListener, BaseQuickAdapter.RequestLoadMoreListener {
+public class AdapterActivity extends AppCompatActivity implements BaseQuickAdapter.RequestRefreshListener, BaseQuickAdapter.RequestLoadMoreListener {
 
     private int pageSize = 5;
     private int pageNow = 1;
